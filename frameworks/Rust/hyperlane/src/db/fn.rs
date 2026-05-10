@@ -149,7 +149,7 @@ pub(crate) async fn update_world_rows(limit: Queries) -> Vec<QueryRow> {
     let (data, id_list, random_numbers) = get_update_data(limit).await;
     let sql: &str = "UPDATE World SET randomNumber = $1 WHERE id = $2";
     let mut tasks: Vec<JoinHandle<_>> = Vec::with_capacity(limit as usize);
-    for (id, random_number) in id_list.into_iter().zip(random_numbers.into_iter()) {
+    for (id, random_number) in id_list.into_iter().zip(random_numbers) {
         let db_pool: Pool<Postgres> = db_pool.clone();
         tasks.push(spawn(async move {
             db_query(sql)
