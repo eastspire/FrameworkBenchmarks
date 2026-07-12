@@ -566,15 +566,15 @@ dependencies = [
 
 [[package]]
 name = "http-constant"
-version = "5.6.8"
+version = "5.6.10"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "0251e3fe5c525996216a7510af2ee9b712fc7be8a6bc502987c5d92d94f66972"
+checksum = "8fb7184d063e426b077be1e9dd69227b744d45a049d9402ae6b8d893c625b831"
 
 [[package]]
 name = "http-type"
-version = "20.1.4"
+version = "20.1.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "f342a77f48b8be737b8b7e70999a69b18a4d0e231792cc6a25302f0f439206c6"
+checksum = "185c441736c33d2b745da3becc1085f48c352b00fc0587dae513b7697ee34b5f"
 dependencies = [
  "hex",
  "http-compress",
@@ -590,16 +590,15 @@ dependencies = [
 
 [[package]]
 name = "hyperlane"
-version = "21.3.1"
+version = "21.3.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "0cb05f9cf390efd50c03aac019b02eafd95732f88831d7d22be2ca0c5f0aeb52"
+checksum = "698b62b3735344cb9eb0b2a9d39ef718ff67cbb1f346fd40c740ea7fb7613ab4"
 dependencies = [
  "http-type",
  "inventory",
  "lombok-macros",
  "regex",
  "serde",
- "socket2",
 ]
 
 [[package]]
@@ -610,7 +609,7 @@ checksum = "4059b0865216329daff8f7430a7f1677b2fb007f98f7ea7c27bc59a60f06f89f"
 
 [[package]]
 name = "hyperlane_techempower"
-version = "0.4.5"
+version = "0.4.6"
 dependencies = [
  "futures",
  "hyperlane",
