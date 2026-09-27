@@ -5,7 +5,7 @@ mod route;
 mod server;
 mod utils;
 
-use {config::*, db::*, middleware::*, route::*, server::*, utils::*};
+use {config::*, db::*, server::*, utils::*};
 
 use std::fmt;
 
@@ -28,22 +28,11 @@ use {
 };
 
 #[tokio::main]
+#[hyperlane(server: Server)]
 async fn main() {
     init_db().await;
-    Server::default()
+    server
         .server_config(init_server_config())
-        .request_config(init_request_config())
-        .request_middleware::<RequestMiddleware>()
-        .route::<PlaintextRoute>("/plaintext")
-        .route::<JsonRoute>("/json")
-        .route::<CachedQueryRoute>("/cached-quer")
-        .route::<DbRoute>("/db")
-        .route::<QueryRoute>("/query")
-        .route::<FortunesRoute>("/fortunes")
-        .route::<UpdateRoute>("/upda")
-        .run()
-        .await
-        .unwrap()
-        .wait()
-        .await;
+        .request_config(init_request_config());
+    server.run().await.unwrap().wait().await;
 }
